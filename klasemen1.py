@@ -26,6 +26,7 @@
 # # Tampilkan klasemen
 # print(df_sorted)
 
+import streamlit
 import pandas as pd
 
 # Daftar tim
