@@ -95,4 +95,4 @@ update_klasemen("RT 03", "RT 04", 54, 75, 0, 3)
 update_klasemen("RT 01", "RT 06", 98, 109, 2, 3)
 
 # Tampilkan klasemen sementara
-print(show_klasemen())
+streamlit.write(show_klasemen())
