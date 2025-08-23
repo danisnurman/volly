@@ -103,7 +103,7 @@ def update_klasemen(timA, timB, skorA, skorB, setA, setB):
 
 def show_klasemen():
     global klasemen
-    
+
     # Hitung selisih
     klasemen["Selisih Set"] = klasemen["Set +"] - klasemen["Set -"]
     klasemen["Selisih Skor"] = klasemen["Skor +"] - klasemen["Skor -"]
@@ -118,32 +118,16 @@ def show_klasemen():
     df_sorted.index = df_sorted.index + 1
     df_sorted.rename_axis("No", inplace=True)
 
-    # ===== Styling =====
-    def highlight_poin(val):
-        if val >= 7:
-            color = "#4CAF50"   # hijau
-        elif val >= 4:
-            color = "#FFC107"   # kuning
-        else:
-            color = "#F44336"   # merah
-        return f"background-color: {color}; color: white; font-weight: bold; text-align: center;"
-
-    def arrow_set(val):
-        if val > 0:
-            return f"{val} ⬆️"
-        elif val < 0:
-            return f"{val} ⬇️"
-        else:
-            return f"{val} ➖"
-
-    # Ganti nilai kolom Selisih Set dengan string + ikon
-    df_sorted["Selisih Set"] = df_sorted["Selisih Set"].apply(arrow_set)
-
-    # Styling pakai pandas Styler
+    # ---------- STYLING ----------
     styled = (
         df_sorted.style
-        .applymap(highlight_poin, subset=["Poin"])  # warna di kolom poin
-        .background_gradient(cmap="RdYlGn", subset=["Selisih Skor"])  # gradasi selisih skor
+        # Gradient hijau utk Poin (semakin tinggi semakin gelap)
+        .background_gradient(cmap="Greens", subset=["Poin"])
+        # Gradient biru utk Selisih Set
+        .background_gradient(cmap="Blues", subset=["Selisih Set"])
+        # Gradient oranye utk Selisih Skor
+        .background_gradient(cmap="Oranges", subset=["Selisih Skor"])
+        .format({"Selisih Set": "{:+d}", "Selisih Skor": "{:+d}"})
     )
 
     return styled
