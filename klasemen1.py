@@ -87,7 +87,8 @@ def update_klasemen(timA, timB, skorA, skorB, setA, setB):
 def show_klasemen():
     global klasemen
     klasemen["Selisih Set"] = klasemen["Set +"] - klasemen["Set -"]
-    return klasemen.sort_values(by=["Poin", "Selisih Set"], ascending=[False, False]).reset_index(drop=True)
+    klasemen["Selisih Skor"] = klasemen["Skor +"] - klasemen["Skor -"]
+    return klasemen.sort_values(by=["Poin", "Selisih Set", "Selisih Skor"], ascending=[False, False]).reset_index(drop=True)
 
 # ==========================================
 # Input hasil pertandingan (contoh data sesuai tabel Anda)
