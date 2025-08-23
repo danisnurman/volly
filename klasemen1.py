@@ -29,8 +29,7 @@
 import streamlit
 import pandas as pd
 
-streamlit.title("Turnamen Bola Voli Antar RT")
-streamlit.title("Mejing Kidul 2025")
+streamlit.title("Turnamen Bola Voli Mejing Kidul")
 streamlit.write("Klasemen Tim Putra")
 
 # Daftar tim
