@@ -97,7 +97,7 @@ def show_klasemen():
 
     # Tambahkan nomor urut
     df_sorted.index = df_sorted.index + 1
-    df_sorted.insert(0, "No", df_sorted.index)
+    df_sorted.rename_axis("No", inplace=True)
 
     return df_sorted
 
