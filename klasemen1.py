@@ -89,9 +89,17 @@ def update_klasemen(timA, timB, skorA, skorB, setA, setB):
 
 def show_klasemen():
     global klasemen
+
+    # Urutkan berdasarkan Poin, Selisih Set, Selisih Skor
     klasemen["Selisih Set"] = klasemen["Set +"] - klasemen["Set -"]
     klasemen["Selisih Skor"] = klasemen["Skor +"] - klasemen["Skor -"]
-    return klasemen.sort_values(by=["Poin", "Selisih Set", "Selisih Skor"], ascending=[False, False, False]).reset_index(drop=True)
+    df_sorted = klasemen.sort_values(by=["Poin", "Selisih Set", "Selisih Skor"], ascending=[False, False, False]).reset_index(drop=True)
+
+    # Tambahkan nomor urut
+    df_sorted.index = df_sorted.index + 1
+    df_sorted.insert(0, "No", df_sorted.index)
+
+    return df_sorted
 
 # ==========================================
 # Input hasil pertandingan (contoh data sesuai tabel Anda)
