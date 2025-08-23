@@ -87,19 +87,66 @@ def update_klasemen(timA, timB, skorA, skorB, setA, setB):
             klasemen.loc[klasemen["Tim"] == timB, "Poin"] += 2
             klasemen.loc[klasemen["Tim"] == timA, "Poin"] += 1
 
+# def show_klasemen():
+#     global klasemen
+
+#     # Urutkan berdasarkan Poin, Selisih Set, Selisih Skor
+#     klasemen["Selisih Set"] = klasemen["Set +"] - klasemen["Set -"]
+#     klasemen["Selisih Skor"] = klasemen["Skor +"] - klasemen["Skor -"]
+#     df_sorted = klasemen.sort_values(by=["Poin", "Selisih Set", "Selisih Skor"], ascending=[False, False, False]).reset_index(drop=True)
+
+#     # Tambahkan nomor urut
+#     df_sorted.index = df_sorted.index + 1
+#     df_sorted.rename_axis("No", inplace=True)
+
+#     return df_sorted
+
 def show_klasemen():
     global klasemen
-
-    # Urutkan berdasarkan Poin, Selisih Set, Selisih Skor
+    
+    # Hitung selisih
     klasemen["Selisih Set"] = klasemen["Set +"] - klasemen["Set -"]
     klasemen["Selisih Skor"] = klasemen["Skor +"] - klasemen["Skor -"]
-    df_sorted = klasemen.sort_values(by=["Poin", "Selisih Set", "Selisih Skor"], ascending=[False, False, False]).reset_index(drop=True)
+
+    # Urutkan
+    df_sorted = klasemen.sort_values(
+        by=["Poin", "Selisih Set", "Selisih Skor"],
+        ascending=[False, False, False]
+    ).reset_index(drop=True)
 
     # Tambahkan nomor urut
     df_sorted.index = df_sorted.index + 1
     df_sorted.rename_axis("No", inplace=True)
 
-    return df_sorted
+    # ===== Styling =====
+    def highlight_poin(val):
+        if val >= 7:
+            color = "#4CAF50"   # hijau
+        elif val >= 4:
+            color = "#FFC107"   # kuning
+        else:
+            color = "#F44336"   # merah
+        return f"background-color: {color}; color: white; font-weight: bold; text-align: center;"
+
+    def arrow_set(val):
+        if val > 0:
+            return f"{val} ⬆️"
+        elif val < 0:
+            return f"{val} ⬇️"
+        else:
+            return f"{val} ➖"
+
+    # Ganti nilai kolom Selisih Set dengan string + ikon
+    df_sorted["Selisih Set"] = df_sorted["Selisih Set"].apply(arrow_set)
+
+    # Styling pakai pandas Styler
+    styled = (
+        df_sorted.style
+        .applymap(highlight_poin, subset=["Poin"])  # warna di kolom poin
+        .background_gradient(cmap="RdYlGn", subset=["Selisih Skor"])  # gradasi selisih skor
+    )
+
+    return styled
 
 # ==========================================
 # Input hasil pertandingan (contoh data sesuai tabel Anda)
@@ -116,4 +163,5 @@ update_klasemen("RT 04", "RT 05", 97, 67, 3, 1)
 update_klasemen("RT 01", "RT 03", 77, 51, 3, 0)
 
 # Tampilkan klasemen sementara
-streamlit.write(show_klasemen())
+# streamlit.write(show_klasemen())
+streamlit.dataframe(show_klasemen(), use_container_width=True)
