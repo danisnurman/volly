@@ -146,6 +146,7 @@ update_klasemen("RT 02", "RT 06", 100, 88, 2, 3)    #9
 update_klasemen("RT 04", "RT 05", 97, 67, 3, 1)     #10
 update_klasemen("RT 01", "RT 03", 77, 51, 3, 0)     #11
 update_klasemen("RT 03", "RT 05", 106, 110, 2, 3)   #12
+update_klasemen("RT 04", "RT 06", 100, 82, 3, 2)   #13
 
 # Tampilkan klasemen sementara
 # streamlit.write(show_klasemen())
