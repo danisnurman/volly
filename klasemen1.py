@@ -258,6 +258,8 @@ streamlit.markdown("*:green[Last update: 26 Agustus 2025 02:41:15]*")
 
 # new line
 streamlit.write("\n\n")
+streamlit.divider()
+streamlit.write("\n\n")
 
 # Tampilkan klasemen putra
 streamlit.markdown(":blue-background[**Klasemen Tim Putra**]")
