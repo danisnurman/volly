@@ -148,8 +148,8 @@ def show_klasemen_putri():
     global klasemen_putri
 
     # Hitung selisih
-    klasemen_putri["Selisih Set"] = klasemen["Set +"] - klasemen_putri["Set -"]
-    klasemen_putri["Selisih Skor"] = klasemen["Skor +"] - klasemen_putri["Skor -"]
+    klasemen_putri["Selisih Set"] = klasemen_putri["Set +"] - klasemen_putri["Set -"]
+    klasemen_putri["Selisih Skor"] = klasemen_putri["Skor +"] - klasemen_putri["Skor -"]
 
     # Urutkan
     df_sorted = klasemen_putri.sort_values(
