@@ -49,6 +49,47 @@ klasemen = pd.DataFrame({
     "Poin": 0
 })
 
+# Klasemen Putri
+def update_klasemen_putri(timA, timB, skorA, skorB, setA, setB):
+    global klasemen_putri
+
+    # Update jumlah main
+    klasemen_putri.loc[klasemen_putri["Tim"] == timA, "Main"] += 1
+    klasemen_putri.loc[klasemen_putri["Tim"] == timB, "Main"] += 1
+
+    # Update skor
+    klasemen_putri.loc[klasemen_putri["Tim"] == timA, "Skor +"] += skorA
+    klasemen_putri.loc[klasemen_putri["Tim"] == timA, "Skor -"] += skorB
+    klasemen_putri.loc[klasemen_putri["Tim"] == timB, "Skor +"] += skorB
+    klasemen_putri.loc[klasemen_putri["Tim"] == timB, "Skor -"] += skorA
+
+    # Update set
+    klasemen_putri.loc[klasemen_putri["Tim"] == timA, "Set +"] += setA
+    klasemen_putri.loc[klasemen_putri["Tim"] == timA, "Set -"] += setB
+    klasemen_putri.loc[klasemen_putri["Tim"] == timB, "Set +"] += setB
+    klasemen_putri.loc[klasemen_putri["Tim"] == timB, "Set -"] += setA
+
+    # Tentukan menang/kalah
+    if setA > setB:
+        klasemen_putri.loc[klasemen_putri["Tim"] == timA, "Menang"] += 1
+        klasemen_putri.loc[klasemen_putri["Tim"] == timB, "Kalah"] += 1
+        # Poin
+        if setA == 2 and setB <= 1:
+            klasemen_putri.loc[klasemen_putri["Tim"] == timA, "Poin"] += 2
+        # elif setA == 3 and setB == 2:
+        #     klasemen_putri.loc[klasemen_putri["Tim"] == timA, "Poin"] += 2
+        #     klasemen_putri.loc[klasemen_putri["Tim"] == timB, "Poin"] += 1
+    else:
+        klasemen_putri.loc[klasemen_putri["Tim"] == timB, "Menang"] += 1
+        klasemen_putri.loc[klasemen_putri["Tim"] == timA, "Kalah"] += 1
+        # Poin
+        if setB == 2 and setA <= 1:
+            klasemen_putri.loc[klasemen_putri["Tim"] == timB, "Poin"] += 2
+        # elif setB == 3 and setA == 2:
+        #     klasemen_putri.loc[klasemen_putri["Tim"] == timB, "Poin"] += 2
+        #     klasemen_putri.loc[klasemen_putri["Tim"] == timA, "Poin"] += 1
+
+# Klasemen Putra
 def update_klasemen(timA, timB, skorA, skorB, setA, setB):
     global klasemen
 
@@ -102,6 +143,39 @@ def update_klasemen(timA, timB, skorA, skorB, setA, setB):
 
 #     return df_sorted
 
+# Print Klasemen Putri
+def show_klasemen_putri():
+    global klasemen_putri
+
+    # Hitung selisih
+    klasemen_putri["Selisih Set"] = klasemen["Set +"] - klasemen_putri["Set -"]
+    klasemen_putri["Selisih Skor"] = klasemen["Skor +"] - klasemen_putri["Skor -"]
+
+    # Urutkan
+    df_sorted = klasemen_putri.sort_values(
+        by=["Poin", "Selisih Set", "Selisih Skor"],
+        ascending=[False, False, False]
+    ).reset_index(drop=True)
+
+    # Tambahkan nomor urut
+    df_sorted.index = df_sorted.index + 1
+    df_sorted.rename_axis("No", inplace=True)
+
+    # ---------- STYLING ----------
+    styled = (
+        df_sorted.style
+        # Gradient hijau utk Poin (semakin tinggi semakin gelap)
+        .background_gradient(cmap="Greens", subset=["Poin"])
+        # Gradient biru utk Selisih Set
+        .background_gradient(cmap="Blues", subset=["Selisih Set"])
+        # Gradient oranye utk Selisih Skor
+        .background_gradient(cmap="Oranges", subset=["Selisih Skor"])
+        .format({"Selisih Set": "{:+d}", "Selisih Skor": "{:+d}"})
+    )
+
+    return styled
+
+# Print Klasemen Putra
 def show_klasemen():
     global klasemen
 
@@ -151,5 +225,5 @@ update_klasemen("RT 04", "RT 06", 100, 82, 3, 2)   #13
 update_klasemen("RT 01", "RT 02", 97, 81, 3, 1)   #14
 
 # Tampilkan klasemen sementara
-# streamlit.write(show_klasemen())
+streamlit.dataframe(show_klasemen_putri())
 streamlit.dataframe(show_klasemen(), use_container_width=True)
