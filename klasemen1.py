@@ -30,6 +30,8 @@ import streamlit
 import pandas as pd
 
 streamlit.title("Turnamen Bola Voli Mejing Kidul")
+streamlit.divider()
+streamlit.write("\n\n")
 
 # Daftar tim
 teams = ["RT 01", "RT 02", "RT 03", "RT 04", "RT 05", "RT 06"]
@@ -257,7 +259,6 @@ streamlit.dataframe(show_klasemen_putri(), use_container_width=True)
 streamlit.markdown("*:green[Last update: 26 Agustus 2025 02:41:15]*")
 
 # new line
-streamlit.write("\n\n")
 streamlit.divider()
 streamlit.write("\n\n")
 
