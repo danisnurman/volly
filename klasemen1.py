@@ -31,6 +31,7 @@ import pandas as pd
 
 streamlit.title("Turnamen Bola Voli Mejing Kidul")
 streamlit.write("Klasemen Tim Putra")
+streamlit.write("Last update: 25 Agustus 2025 23.48 WIB")
 
 # Daftar tim
 teams = ["RT 01", "RT 02", "RT 03", "RT 04", "RT 05", "RT 06"]
@@ -147,6 +148,7 @@ update_klasemen("RT 04", "RT 05", 97, 67, 3, 1)     #10
 update_klasemen("RT 01", "RT 03", 77, 51, 3, 0)     #11
 update_klasemen("RT 03", "RT 05", 106, 110, 2, 3)   #12
 update_klasemen("RT 04", "RT 06", 100, 82, 3, 2)   #13
+update_klasemen("RT 01", "RT 02", 97, 81, 3, 1)   #14
 
 # Tampilkan klasemen sementara
 # streamlit.write(show_klasemen())
