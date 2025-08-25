@@ -209,6 +209,12 @@ def show_klasemen():
 
 # ==========================================
 # Input hasil pertandingan (contoh data sesuai tabel Anda)
+update_klasemen_putri("RT 02", "RT 04", 13, 50, 0, 2)     #1
+update_klasemen_putri("RT 02", "RT 05", 59, 65, 1, 2)     #2
+update_klasemen_putri("RT 03", "RT 04", 17, 50, 0, 2)     #3
+update_klasemen_putri("RT 01", "RT 05", 50, 29, 2, 0)     #4
+
+# Input hasil pertandingan (contoh data sesuai tabel Anda)
 update_klasemen("RT 02", "RT 05", 51, 75, 0, 3)     #1
 update_klasemen("RT 03", "RT 04", 54, 75, 0, 3)     #2
 update_klasemen("RT 01", "RT 06", 98, 109, 2, 3)    #3
