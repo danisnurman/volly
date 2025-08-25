@@ -37,6 +37,19 @@ streamlit.write("Last update: 25 Agustus 2025 23.48 WIB")
 teams = ["RT 01", "RT 02", "RT 03", "RT 04", "RT 05", "RT 06"]
 
 # Inisialisasi klasemen
+klasemen_putri = pd.DataFrame({
+    "Tim": teams,
+    "Main": 0,
+    "Menang": 0,
+    "Kalah": 0,
+    "Skor +": 0,
+    "Skor -": 0,
+    "Set +": 0,
+    "Set -": 0,
+    "Poin": 0
+})
+
+# Inisialisasi klasemen
 klasemen = pd.DataFrame({
     "Tim": teams,
     "Main": 0,
