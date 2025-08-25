@@ -30,6 +30,7 @@ import streamlit
 import pandas as pd
 
 streamlit.title("Turnamen Bola Voli Mejing Kidul")
+streamlit.markdown("*Link Rekap Skor*: s.id/KeFRq")
 streamlit.divider()
 streamlit.write("\n\n")
 
