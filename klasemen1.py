@@ -254,15 +254,15 @@ update_klasemen("RT 04", "RT 06", 100, 82, 3, 2)   #13
 update_klasemen("RT 01", "RT 02", 97, 81, 3, 1)   #14
 
 # Tampilkan klasemen putri
-streamlit.markdown(":orange-background[**Klasemen Tim Putri**]")
+streamlit.subheader(":orange-background[**Klasemen Tim Putri**]")
 streamlit.dataframe(show_klasemen_putri(), use_container_width=True)
-streamlit.markdown("*:green[Last update: 26 Agustus 2025 02:41:15]*")
+streamlit.badge("Last update: 26 Agustus 2025 02:41:15", icon=":material/check:", color="green")
 
 # new line
 streamlit.divider()
 streamlit.write("\n\n")
 
 # Tampilkan klasemen putra
-streamlit.markdown(":blue-background[**Klasemen Tim Putra**]")
+streamlit.subheader(":blue-background[**Klasemen Tim Putra**]")
 streamlit.dataframe(show_klasemen(), use_container_width=True)
-streamlit.write("*:green[Last update: 25 Agustus 2025 23:48:28]*")
+streamlit.badge("Last update: 25 Agustus 2025 23:48:28", icon=":material/check:", color="green")
