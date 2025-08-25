@@ -226,6 +226,16 @@ update_klasemen_putri("RT 02", "RT 04", 13, 50, 0, 2)     #1
 update_klasemen_putri("RT 02", "RT 05", 59, 65, 1, 2)     #2
 update_klasemen_putri("RT 03", "RT 04", 17, 50, 0, 2)     #3
 update_klasemen_putri("RT 01", "RT 05", 50, 29, 2, 0)     #4
+update_klasemen_putri("RT 04", "RT 06", 50, 26, 2, 0)     #5
+update_klasemen_putri("RT 03", "RT 06", 28, 50, 0, 2)     #6
+update_klasemen_putri("RT 01", "RT 04", 20, 50, 0, 2)     #7
+update_klasemen_putri("RT 02", "RT 03", 50, 39, 2, 0)     #8
+update_klasemen_putri("RT 01", "RT 03", 50, 30, 2, 0)     #9
+update_klasemen_putri("RT 02", "RT 06", 18, 50, 0, 2)     #10
+update_klasemen_putri("RT 04", "RT 05", 50, 31, 2, 0)     #11
+update_klasemen_putri("RT 01", "RT 02", 50, 27, 2, 0)     #12
+update_klasemen_putri("RT 03", "RT 05", 45, 51, 0, 2)     #13
+update_klasemen_putri("RT 01", "RT 06", 50, 41, 2, 0)     #14
 
 # Input hasil pertandingan (contoh data sesuai tabel Anda)
 update_klasemen("RT 02", "RT 05", 51, 75, 0, 3)     #1
