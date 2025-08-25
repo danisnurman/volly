@@ -225,5 +225,5 @@ update_klasemen("RT 04", "RT 06", 100, 82, 3, 2)   #13
 update_klasemen("RT 01", "RT 02", 97, 81, 3, 1)   #14
 
 # Tampilkan klasemen sementara
-streamlit.dataframe(show_klasemen_putri())
+streamlit.dataframe(show_klasemen_putri(), use_container_width=True)
 streamlit.dataframe(show_klasemen(), use_container_width=True)
