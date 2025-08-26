@@ -31,8 +31,8 @@ import pandas as pd
 
 streamlit.title("Turnamen Bola Voli Mejing Kidul")
 
-url = "https://s.id/KeFRq"
-streamlit.markdown("**Link Rekap Skor**: [s.id/KeFRq](%s)" % url)
+url = "https://s.id/iF2N1"
+streamlit.markdown("**Link Rekap Skor**: [s.id/iF2N1](%s)" % url)
 streamlit.divider()
 streamlit.write("\n\n")
 
@@ -259,7 +259,7 @@ update_klasemen("RT 01", "RT 02", 97, 81, 3, 1)   #14
 # Tampilkan klasemen putri
 streamlit.subheader(":orange-background[**Klasemen Tim Putri**]")
 streamlit.dataframe(show_klasemen_putri(), use_container_width=True)
-streamlit.badge("Last update: 26 Agustus 2025 02:41:15", icon=":material/check:", color="green")
+streamlit.badge("*Last update: 26 Agustus 2025 02:41:15*", icon=":material/check:", color="green")
 
 # new line
 streamlit.divider()
@@ -268,4 +268,4 @@ streamlit.write("\n\n")
 # Tampilkan klasemen putra
 streamlit.subheader(":blue-background[**Klasemen Tim Putra**]")
 streamlit.dataframe(show_klasemen(), use_container_width=True)
-streamlit.badge("Last update: 25 Agustus 2025 23:48:28", icon=":material/check:", color="green")
+streamlit.badge("*Last update: 25 Agustus 2025 23:48:28*", icon=":material/check:", color="green")
