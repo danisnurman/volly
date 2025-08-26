@@ -239,6 +239,7 @@ update_klasemen_putri("RT 04", "RT 05", 50, 31, 2, 0)     #11
 update_klasemen_putri("RT 01", "RT 02", 50, 27, 2, 0)     #12
 update_klasemen_putri("RT 03", "RT 05", 45, 51, 0, 2)     #13
 update_klasemen_putri("RT 01", "RT 06", 50, 41, 2, 0)     #14
+update_klasemen_putri("RT 05", "RT 06", 32, 50, 0, 2)     #15
 
 # Input hasil pertandingan (contoh data sesuai tabel Anda)
 update_klasemen("RT 02", "RT 05", 51, 75, 0, 3)     #1
@@ -255,11 +256,12 @@ update_klasemen("RT 01", "RT 03", 77, 51, 3, 0)     #11
 update_klasemen("RT 03", "RT 05", 106, 110, 2, 3)   #12
 update_klasemen("RT 04", "RT 06", 100, 82, 3, 2)   #13
 update_klasemen("RT 01", "RT 02", 97, 81, 3, 1)   #14
+update_klasemen("RT 01", "RT 04", 35, 75, 0, 3)   #15
 
 # Tampilkan klasemen putri
 streamlit.subheader(":orange-background[**Klasemen Tim Putri**]")
 streamlit.dataframe(show_klasemen_putri(), use_container_width=True)
-streamlit.badge("Last update: 26 Agustus 2025 02:41:15", icon=":material/check:", color="green")
+streamlit.badge("Last update: 26 Agustus 2025 22:08:17", icon=":material/check:", color="green")
 
 # new line
 streamlit.divider()
@@ -268,4 +270,4 @@ streamlit.write("\n\n")
 # Tampilkan klasemen putra
 streamlit.subheader(":blue-background[**Klasemen Tim Putra**]")
 streamlit.dataframe(show_klasemen(), use_container_width=True)
-streamlit.badge("Last update: 25 Agustus 2025 23:48:28", icon=":material/check:", color="green")
+streamlit.badge("Last update: 26 Agustus 2025 22:09:54", icon=":material/check:", color="green")
