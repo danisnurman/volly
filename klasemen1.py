@@ -275,4 +275,4 @@ streamlit.badge("Last update: 26 Agustus 2025 22:09:54", icon=":material/check:"
 streamlit.divider()
 streamlit.write("\n\n")
 streamlit.markdown("*Sekretariat Bola Voli Antar RT Mejing Kidul RT 08*")
-streamlit.markdown("*Website information: made by Danis Nurmansyah*)
+streamlit.markdown("*Website information: made by Danis Nurmansyah*")
